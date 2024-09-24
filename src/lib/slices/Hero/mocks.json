@@ -6,17 +6,17 @@
 			"first_name": {
 				"__TYPE__": "FieldContent",
 				"type": "Text",
-				"value": "Tom"
+				"value": "donut"
 			},
 			"last_name": {
 				"__TYPE__": "FieldContent",
 				"type": "Text",
-				"value": "Bombadillo"
+				"value": "jam"
 			},
 			"tagline": {
 				"__TYPE__": "FieldContent",
 				"type": "Text",
-				"value": "Mysterious Being"
+				"value": "sonic and visual exploration in the round"
 			}
 		},
 		"items": []
