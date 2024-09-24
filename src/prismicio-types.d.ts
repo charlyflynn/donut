@@ -4,7 +4,7 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = HeroSlice | RichTextSlice;
+type PageDocumentDataSlicesSlice = DonutSlice | HeroSlice | RichTextSlice;
 
 /**
  * Content for Page documents
@@ -80,6 +80,68 @@ export type PageDocument<Lang extends string = string> = prismic.PrismicDocument
 >;
 
 export type AllDocumentTypes = PageDocument;
+
+/**
+ * Primary content in *Donut → Default → Primary*
+ */
+export interface DonutSliceDefaultPrimary {
+	/**
+	 * First Name field in *Donut → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: donut.default.primary.first_name
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	first_name: prismic.KeyTextField;
+
+	/**
+	 * Last Name field in *Donut → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: donut.default.primary.last_name
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	last_name: prismic.KeyTextField;
+
+	/**
+	 * Tagline field in *Donut → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: donut.default.primary.tagline
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	tagline: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Donut Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DonutSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<DonutSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *Donut*
+ */
+type DonutSliceVariation = DonutSliceDefault;
+
+/**
+ * Donut Shared Slice
+ *
+ * - **API ID**: `donut`
+ * - **Description**: Donut
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DonutSlice = prismic.SharedSlice<'donut', DonutSliceVariation>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -210,6 +272,10 @@ declare module '@prismicio/client' {
 			PageDocumentData,
 			PageDocumentDataSlicesSlice,
 			AllDocumentTypes,
+			DonutSlice,
+			DonutSliceDefaultPrimary,
+			DonutSliceVariation,
+			DonutSliceDefault,
 			HeroSlice,
 			HeroSliceDefaultPrimary,
 			HeroSliceVariation,
