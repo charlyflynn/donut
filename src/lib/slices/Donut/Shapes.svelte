@@ -3,6 +3,7 @@
 	import * as Three from 'three';
 	import Geometry from './Geometry.svelte';
 	import { ContactShadows, Environment, interactivity, transitions } from '@threlte/extras';
+	import DiscoNut2 from './DiscoNut2.svelte';
 
 	interactivity();
 	transitions();
@@ -40,7 +41,7 @@
 <!-- <Geometry position={[1.6, 1.6, -4]} rate={0.7} geometry={new Three.OctahedronGeometry(1.5)} /> -->
 
 <!-- Gem -->
-<Geometry position={[0, 0, 0]} rate={0.3} geometry={new Three.TorusGeometry(1, 0.5, 16, 32)} />
+<!-- <Geometry position={[0, 0, 0]} rate={0.3} geometry={new Three.TorusGeometry(1, 0.5, 16, 32)} /> -->
 <!-- Pill -->
 <Geometry
 	position={[1, -0.75, 4]}
@@ -65,3 +66,4 @@
 	rate={0.7}
 	geometry={new Three.TorusGeometry(0.3, 0.2, 16, 32)}
 />
+<DiscoNut2 />
